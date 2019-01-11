@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class EchoClient {
-	private static final String SERVER_IP = "218.39.221.90";
+	private static final String SERVER_IP = "218.39.221.74";
 	private static final int SERVER_PORT = 6000;
 
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class EchoClient {
 				//5. 키보드 입력 받기
 				System.out.print(">>");
 				String line = scanner.nextLine();
-				if("quit".contentEquals(line)) {
+				if("quit".equals(line)) {
 					break;
 				}
 				

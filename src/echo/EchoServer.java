@@ -27,12 +27,15 @@ public class EchoServer {
 	         String localhostAddress = inetAddress.getHostAddress();
 	         serverSocket.bind(new InetSocketAddress(localhostAddress, PORT));
 	         log("binding " + localhostAddress + ":" + PORT);
-
-	         // 3.accept
-	         Socket socket = serverSocket.accept(); // Blocking
-	         Thread thread = new EchoServerReceiveThread(socket);
-	         thread.start();
-
+	         
+	         while(true) 
+	         {
+		         // 3.accept
+		         Socket socket = serverSocket.accept(); // Blocking
+		         
+		         Thread thread = new EchoServerReceiveThread(socket);
+		         thread.start();
+	         }
 	      } catch (IOException e) {
 	         System.out.println("error : "+e);
 	      }
